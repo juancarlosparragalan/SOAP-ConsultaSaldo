@@ -14,7 +14,7 @@ function getRandomInt(max) {
 async function response(req, res, next) {
     const  numberVar = getRandomInt(10000);
     const xml = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.banco.com/esb/services/consultaSaldo/"><soapenv:Header/><soapenv:Body><con:consultaSaldoRs><con:responseHeader><con:status><con:statusCode>200</con:statusCode><con:statusDesc>Success</con:statusDesc></con:status></con:responseHeader><con:saldoRs><con:disponible>true</con:disponible><con:saldo>saldito</con:saldo></con:saldoRs></con:consultaSaldoRs></soapenv:Body></soapenv:Envelope>'
-      const xmlResp = xml.replace('numberVar', numberVar)
+      const xmlResp = xml.replace('saldito', numberVar)
     res.status(200).send(xmlResp);
 }
 
